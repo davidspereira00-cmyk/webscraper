@@ -9,6 +9,7 @@ namespace WebScrapper.Interfaces
 {
     internal interface IEmailRepository
     {
+        StringBuilder CreateMail(string url);
         void SendEmail(SmtpSettings smtpSettings, EmailMessage emailMessage);
     }
 }

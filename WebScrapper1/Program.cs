@@ -10,6 +10,8 @@ using WebScrapper.Models;
 using WebScrapper.Repository;
 using WebScrapper.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
+using System.Text;
+
 
 namespace WebScrapper
 {
@@ -30,21 +32,17 @@ namespace WebScrapper
                 .GetSection("SmtpSettings")
                 .Get<SmtpSettings>();
 
-            HtmlWeb web = new HtmlWeb();
-            HtmlDocument doc = web.Load("https://example.com/");
+            
 
-            var Title = doc.DocumentNode.SelectNodes("//div/h1").First().InnerText;
-
-            var Body = doc.DocumentNode.SelectNodes("//div/p").First().InnerText;
-
-            Console.WriteLine($"{Title} \n");
-            Console.WriteLine($"{Body} \n");
+            var message = emailRepo.CreateMail("https://www.basketball-reference.com/boxscores/?month=4&day=12&year=2026");
+            
 
             var emailMessage = new EmailMessage
             {
-                subject = "Hello",
-                body = Body
+                subject = $"🏀 NBA Daily - {DateTime.Now:dd MMMM yyyy}",
+                body = message.ToString()
             };
+
 
             emailRepo.SendEmail(smtpSettings, emailMessage);
 
