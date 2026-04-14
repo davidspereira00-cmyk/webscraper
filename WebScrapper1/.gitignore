@@ -1,0 +1,63 @@
+## ===============================
+## Visual Studio / .NET
+## ===============================
+
+.vs/
+.vscode/
+
+## Build output
+bin/
+obj/
+
+## User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Rider / JetBrains
+.idea/
+
+## Publish output
+publish/
+*.publishsettings
+
+## ===============================
+## .NET Core / ASP.NET
+## ===============================
+
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+## NuGet
+*.nupkg
+*.snupkg
+**/packages/*
+!**/packages/build/
+
+## Temporary files
+*.tmp
+*.log
+
+## ===============================
+## OS files
+## ===============================
+
+.DS_Store
+Thumbs.db
+
+## ===============================
+## Test results
+## ===============================
+
+TestResults/
+*.trx
+
+## ===============================
+## Environment / secrets
+## ===============================
+
+appsettings.Development.json
+secrets.json
+.env
